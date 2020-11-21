@@ -47,7 +47,7 @@ $ brew list
 
 #gitをMac標準のgitからHomebrewのgitにpathを向ける
 #viでzsh用の設定ファイルを開く
-$vi ~/.zshrc
+$ vi ~/.zshrc
 
 #以下の文言をzshに追記
 #iキーで編集モード、escキーでコマンドモードに切り替え
