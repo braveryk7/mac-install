@@ -29,47 +29,81 @@ $ brew --version
 Macには標準でGitがインストールされていますが、バージョンが古いため最新のGitを利用します。
 GitはHomebrew経由でインストールします。
 
+現在のgitのバージョンを確認
 ```
-#現在のgitのバージョンを確認
 $ git --version
 git version 2.20.0 (Apple Git-117)
+```
 
-#現在のgitのpathを確認
+現在のgitのpathを確認
+
+```
 $ which git
 /usr/bin/git
+```
 
-#homebrewでgitをインストール
+homebrewでgitをインストール
+
+```
 $ brew install git
+```
 
-#インストール後、gitがインストールされたか確認
-#一覧にgitがあればOK
+インストール後、gitがインストールされたか確認
+
+一覧にgitがあればOK
+
+```
 $ brew list
+```
 
-#gitをMac標準のgitからHomebrewのgitにpathを向ける
-#viでzsh用の設定ファイルを開く
+gitをMac標準のgitからHomebrewのgitにpathを向ける
+
+viでzsh用の設定ファイルを開く
+
+```
 $ vi ~/.zshrc
+```
 
-#以下の文言をzshに追記
-#iキーで編集モード、escキーでコマンドモードに切り替え
-#コマンドモードで:wqで上書き保存、:qで保存せずに終了、:q!で保存せずに強制終了
+以下の文言をzshに追記
+
+iキーで編集モード、escキーでコマンドモードに切り替え
+
+コマンドモードで:wqで上書き保存、:qで保存せずに終了、:q!で保存せずに強制終了
+
+```
 PATH=/usr/local/bin/git:$PATH
 export PATH
+```
 
-#zshの変更を再読み込み
+zshの変更を再読み込み
+
+```
 source ~/.zshrc
+```
 
-#gitのバージョンを確認
-#最初のバージョンから変わっていればOK
+gitのバージョンを確認
+
+最初のバージョンから変わっていればOK
+
+```
 $ git --version
 git version 2.21.0
+```
 
-#pathも確認
+pathも確認
+
+```
 $ which git
 /usr/local/bin/git
+```
 
-#gitのユーザー名とメールアドレスを設定
-#usernameはGitHubのIDでOK
-#メールアドレスは会社のメールアドレス、もしくはGitHubのダミーメールアドレス
+gitのユーザー名とメールアドレスを設定
+
+usernameはGitHubのIDでOK
+
+メールアドレスは会社のメールアドレス、もしくはGitHubのダミーメールアドレス
+
+```
 $ git config --global user.name "username"
 $ git config --global user.email "user@example.com"
 ```
@@ -83,20 +117,25 @@ $ mkdir ~/.ssh
 ```
 
 秘密鍵/公開鍵の作成
+
 メールアドレスはgit configで設定したメールアドレスを入力
 ```
 $ ssh-keygen -t ed25519 -N " -f ~/.ssh/github -C user@example.com
 ```
 
 ~/.ssh/github以下にgithub.pub（公開鍵）とgithub（秘密鍵）という2つのキーペアが生成されている
+
 公開鍵をコピー
 ```
 $ pbcopy < ~/.ssh/github.pub
 ```
 
 GitHubにログインした状態でhttps://github.com/settings/keys にアクセスし、New SSH keyをクリック
+
 Titleはわかりやすいもの（例：Mac）を入力し、Keyにペースト
+
 Add SSH Keyで保存
+
 
 configファイルに接続情報を入力する
 ```
