@@ -253,6 +253,6 @@ $ pyenv versions
 
 Pythonのバージョン確認
 ```
-python --version
+$ python --version
 python 3.8.6
 ```
