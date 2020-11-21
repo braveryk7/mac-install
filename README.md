@@ -88,7 +88,7 @@ export PATH
 zshの変更を再読み込み
 
 ```
-source ~/.zshrc
+$ source ~/.zshrc
 ```
 
 gitのバージョンを確認
