@@ -130,7 +130,7 @@ $ mkdir ~/.ssh
 
 メールアドレスはgit configで設定したメールアドレスを入力
 ```
-$ ssh-keygen -t ed25519 -N " -f ~/.ssh/github -C user@example.com
+$ ssh-keygen -t ed25519 -N "" -f ~/.ssh/github -C user@example.com
 ```
 
 ~/.ssh/github以下にgithub.pub（公開鍵）とgithub（秘密鍵）という2つのキーペアが生成されている
