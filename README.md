@@ -72,3 +72,56 @@ $ which git
 #メールアドレスは会社のメールアドレス、もしくはGitHubのダミーメールアドレス
 $ git config --global user.name "username"
 $ git config --global user.email "user@example.com"
+```
+
+## GitHubとの連携
+GitHubと接続するためのSSHキーを生成、GitHubに公開鍵の登録を行います。
+
+ホームディレクトリ直下に.sshディレクトリ作成
+```
+$ mkdir ~/.ssh
+```
+
+秘密鍵/公開鍵の作成
+メールアドレスはgit configで設定したメールアドレスを入力
+```
+$ ssh-keygen -t ed25519 -N " -f ~/.ssh/github -C user@example.com
+```
+
+~/.ssh/github以下にgithub.pub（公開鍵）とgithub（秘密鍵）という2つのキーペアが生成されている
+公開鍵をコピー
+```
+$ pbcopy < ~/.ssh/github.pub
+```
+
+GitHubにログインした状態でhttps://github.com/settings/keys にアクセスし、New SSH keyをクリック
+Titleはわかりやすいもの（例：Mac）を入力し、Keyにペースト
+Add SSH Keyで保存
+
+configファイルに接続情報を入力する
+```
+$ vi ~/.ssh/config
+```
+
+以下を入力
+
+```
+Host github.com
+    IdentityFile ~/.ssh/github
+    User git
+```
+
+パーミッションを設定
+
+```
+$ chmod 700 ~/.ssh
+$ chmod 600 ~/.ssh/*
+```
+
+GitHubへの接続を確認
+
+```
+$ ssh -T github.com
+Warning: Permanently added 'github.com,52.69.186.44' (RSA) to the list of known hosts.
+Hi USERNAME! You've successfully authenticated, but GitHub does not provide shell access.
+```
