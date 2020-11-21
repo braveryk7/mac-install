@@ -174,3 +174,82 @@ $ ssh -T github.com
 Warning: Permanently added 'github.com,52.69.186.44' (RSA) to the list of known hosts.
 Hi USERNAME! You've successfully authenticated, but GitHub does not provide shell access.
 ```
+
+## Python環境の構築
+PythonもGit同様、Macの場合初期からインストールされていますがMacのPythonは2系が使われており非常にレガシーな環境です。
+
+またこのMac標準のPythonはMac本体でも使用されており削除できないので、全く別に環境を構築して使用することとします。
+
+
+Homebrewを使ってバージョン切り替えが行えるように環境構築します。
+
+### XCodeのインストール
+Python環境構築のために、Appleが提供する統合開発環境のXCodeをインストールします。
+
+[Xcode](https://itunes.apple.com/jp/app/xcode/id497799835) へアクセスしダウンロードしてインストールします。
+
+### pyenvのインストール
+複数のPythonバージョンを切り替えできるよう、直接Pythonをインストールせずにpyenvを使ってインストールします。
+
+pyenvインストール
+```
+$ brew install pyenv
+```
+
+pyenvのバージョン確認
+```
+$ pyenv --version
+pyenv 1.2.21
+```
+
+MacのPythonのバージョン確認
+```
+$ python --version
+Python 2.7.16
+```
+
+シェルに標準Pythonではなくpyenvを使うよう記載
+```
+$ cat << 'EOS' >> ~/.zshrc
+export PYENV_ROOT=/usr/local/var/pyenv
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+EOS
+```
+
+zshを再読み込み
+```
+source ~/.zshrc
+```
+
+Pythonのインストール
+```
+$ pyenv install 3.8.6
+```
+
+インストールしたPythonの確認
+```
+$ pyenv versions
+* system
+  3.8.6 (set by /usr/local/var/pyenv/version)
+```
+
+バージョン切り替え
+```
+$ pyenv global 3.8.6
+```
+
+再度Pythonの確認
+```
+$ pyenv versions
+  system
+* 3.8.6 (set by /usr/local/var/pyenv/version)
+```
+
+Pythonのバージョン確認
+```
+python --version
+python 3.8.6
+```
