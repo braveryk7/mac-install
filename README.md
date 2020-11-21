@@ -188,6 +188,15 @@ Python環境構築のために、Appleが提供する統合開発環境のXCode�
 
 [Xcode](https://itunes.apple.com/jp/app/xcode/id497799835) へアクセスしダウンロードしてインストールします。
 
+#### XCodeコマンドラインツールの指定
+最新のXCodeはインストール時にコマンドラインツールが未指定になっています（インストールはされている）。
+そのため以下の手順でXCodeのコマンドラインツールを有効化します。
+
+1. XCodeを起動する
+1. メニューバーからXCode→Preferences...を選択
+1. Locationsを選択
+1. Comand line Tools:のリストボックスが空欄なのでクリックし選択して終了
+
 ### pyenvのインストール
 複数のPythonバージョンを切り替えできるよう、直接Pythonをインストールせずにpyenvを使ってインストールします。
 
