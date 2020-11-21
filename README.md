@@ -188,15 +188,6 @@ Python環境構築のために、Appleが提供する統合開発環境のXCode�
 
 [Xcode](https://itunes.apple.com/jp/app/xcode/id497799835) へアクセスしダウンロードしてインストールします。
 
-#### XCodeコマンドラインツールの指定
-最新のXCodeはインストール時にコマンドラインツールが未指定になっています（インストールはされている）。
-そのため以下の手順でXCodeのコマンドラインツールを有効化します。
-
-1. XCodeを起動する
-1. メニューバーからXCode→Preferences...を選択
-1. Locationsを選択
-1. Comand line Tools:のリストボックスが空欄なのでクリックし選択して終了
-
 ### pyenvのインストール
 複数のPythonバージョンを切り替えできるよう、直接Pythonをインストールせずにpyenvを使ってインストールします。
 
@@ -219,13 +210,16 @@ Python 2.7.16
 
 シェルに標準Pythonではなくpyenvを使うよう記載
 ```
-$ cat << 'EOS' >> ~/.zshrc
-export PYENV_ROOT=/usr/local/var/pyenv
+echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+echo 'PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+echo 'PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+```
 
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-EOS
+シェルにPythonインストールに必要なzlibの設定を記載
+
+```
+echo 'export LDFLAGS="-L/usr/local/opt/zlib/lib"' >> ~/.zshrc
+echo 'export CPPFLAGS="-I/usr/local/opt/zlib/include"' >> ~/.zshrc
 ```
 
 zshを再読み込み
