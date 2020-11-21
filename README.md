@@ -1,24 +1,33 @@
 # mac-install
 
 このリポジトリはCiexionの開発用機材(Mac)の再インストールに必要な手順を示したものです。
+
 標準言語(Python)利用までの手順を遵守してください。
 
 ## Google Chromeのインストール
 Safariから[Google Chrome](https://www.google.com/intl/ja_jp/chrome/) へアクセスし、ダウンロードしてインストールしてください。
+
 ブラウザはGoogle Chromeをデフォルトブラウザとしてください。
 
 ## VSCodeのインストール
 開発用エディタはVSCodeを採用します。
+
 [VSCode](https://azure.microsoft.com/ja-jp/products/visual-studio-code/) へアクセスし、ダウンロードしてインストールしてください。
 
+
 VSCodeインストール後は、日本語環境の利用のため以下の記事に従って日本語環境を構築してください。
+
 記事タイトルにWindowsとなっていますがMacも同様の手順で設定できます。
+
 [Visual Studio Codeで日本語化する方法[Windows] - Qiita](https://qiita.com/nanamesincos/items/5c48ff88a4eeef0a8631)
 
 ## Homebrewのインストール
 Macのパッケージ管理ソフトウェアとしてHomebrewを採用します。
+
 [Homebrew](https://brew.sh/index_ja) にアクセスします。
+
 Homebrewインストールコマンドをコピーし、ターミナル上で実行してHomebrewをインストールしてください。
+
 インストールが完了したら以下のコマンドで正常にインストールされた確認してください。
 
 ```
@@ -27,6 +36,7 @@ $ brew --version
 
 ## Gitのインストール
 Macには標準でGitがインストールされていますが、バージョンが古いため最新のGitを利用します。
+
 GitはHomebrew経由でインストールします。
 
 現在のgitのバージョンを確認
