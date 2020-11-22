@@ -208,18 +208,18 @@ $ python --version
 Python 2.7.16
 ```
 
-シェルに標準Pythonではなくpyenvを使うよう記載
-```
-$ echo 'eval "$(pyenv init -)"' >> ~/.zshrc
-$ echo 'PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
-$ echo 'PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
-```
-
 シェルにPythonインストールに必要なzlibの設定を記載
 
 ```
 $ echo 'export LDFLAGS="-L/usr/local/opt/zlib/lib"' >> ~/.zshrc
 $ echo 'export CPPFLAGS="-I/usr/local/opt/zlib/include"' >> ~/.zshrc
+```
+
+シェルに標準Pythonではなくpyenvを使うよう記載
+```
+$ echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+$ echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+$ echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
 ```
 
 zshを再読み込み
